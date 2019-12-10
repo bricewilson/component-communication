@@ -1,0 +1,47 @@
+Sharing Data with a Service
+---------------------------
+
+Implement a new "Reader of the Month" feature similar to the current "Favorite Book" feature.
+
+	1. Add a new property on the existing data service to store the current "Reader of the Month".
+  2. Add a method to the data service to set a new "Reader of the Month".
+  3. Add a new property to the DashboardComponent to store the "Reader of the Month". Initialize it when the component loads.
+  4. Create a new section on the DashboardComponent template to display the "Reader of the Month".
+  5. Add a button to the EditReader template that will call a method on the component to set the current reader as the "Reader of the Month" on the data service.
+  6. Run the app and verify that changing the current "Reader of the Month" is reflected on the dashboard.
+
+
+Communicating Using @Input and @Output
+--------------------------------------
+
+Add a new "Librarian" property to the InventoryComponent that can be passed in by a parent component. Also, implement a new "Decrease Inventory" feature similar to the existing "Increase Inventory" feature. The parent LibraryComponent should listen for decrease events and update its "totalBookCount" property accordingly.
+
+	1. Add a new property to the InventoryComponent named "branchLibrarian" to store the name of a librarian that may be passed to the component. Update the template to display the librarian name.
+  2. Add a new property to the InventoryComponent capable of emitting "decrease" events to parent components.
+  3. Add a new method to the InventoryComponent to emit "decrease" events.
+  4. Update the InventoryComponent template to include a button that will decrease the number of books.
+  5. Add a "branchLibrarian" property to the LibraryComponent and hard-code a value for it.
+  6. Write an event handler function in the LibraryComponent to handle "decrease" events.
+  7. Update the LibraryComponent template to pass the librarian to the child component and handle decrease events.
+  8. Run the app and verify that the new value is passed to the child component and "decrease" events are properly handled.
+
+
+Creating a Pub/Sub Service with Subjects
+----------------------------------------
+
+Create an ActivityLog service that can receive and broadcast various activities that happen in the app (e.g. a book was edited, a new reader was added, etc.). Also create a new ActivityLogComponent that can subscribe to the activity feed and keep a list of them on the screen at all times.
+
+	1. Create an ActivityLogService containing a private Subject property that's exposed with a separate public Observable property.
+  2. Add a method to the service named "logActivity" that will take a string parameter and produce it from the private Subject.
+  3. Create a new ActivityLogComponent with a public property to store an array of activities (strings).
+  4. Inject the ActivityLogService into the ActivityLogComponent constructor and subscribe to the Observable of activities exposed on the service.
+  5. Create a simple template for the new component that uses *ngFor to display all of the activities stored in the component's property.
+  6. Add the selector for the new component to the AppComponent template just below the <router-outlet> so that the log will always be on the screen.
+  7. Inject the ActivityLogService into the AppComponent constructor.
+  8. Add a new function to the AppComponent that will pass activities to the "logActivity" method on the ActivityLogService.
+  9. Add "click" event handlers to the "Add Book" and "Add Reader" links in the AppComponent template that will call the new function passing and appropriate "activity" to the ActivityLogService (e.g. "Book Added").
+  10. Inject the ActivityLogService into the DashboardComponent constructor.
+  11. Add a new function to the DashboardComponent that will pass activities to the "logActivity" method on the ActivityLogService.
+  12. Add "click" event handlers to the "Edit Book" and "Edit Reader" links in the DashboardComponent template that will call the new function passing and appropriate "activity" to the ActivityLogService including the name of the book or reader being edited.
+  13. Run and test the app to verify that activities are correctly logged to the new component.
+  14. BONUS - Find other places in the app to log additional acitivity types.

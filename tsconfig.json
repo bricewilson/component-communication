@@ -1,0 +1,36 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "baseUrl": "./",
+    "outDir": "./dist/out-tsc",
+    "sourceMap": true,
+    "declaration": false,
+    "downlevelIteration": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "target": "es2015",
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "lib": [
+      "es2018",
+      "dom"
+    ],
+    "paths": {
+      "book-library": [
+        "dist/book-library"
+      ],
+      "book-library/*": [
+        "dist/book-library/*"
+      ],
+      "reader-library": [
+        "dist/reader-library"
+      ],
+      "reader-library/*": [
+        "dist/reader-library/*"
+      ]
+    }
+  }
+}
