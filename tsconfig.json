@@ -1,36 +1,29 @@
+/*
+  This is a "Solution Style" tsconfig.json file, and is used by editors and TypeScript’s language server to improve development experience.
+  It is not intended to be used to perform a compilation.
+
+  To learn more about this file see: https://angular.io/config/solution-tsconfig.
+*/
 {
-  "compileOnSave": false,
-  "compilerOptions": {
-    "baseUrl": "./",
-    "outDir": "./dist/out-tsc",
-    "sourceMap": true,
-    "declaration": false,
-    "downlevelIteration": true,
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "module": "esnext",
-    "moduleResolution": "node",
-    "target": "es2015",
-    "typeRoots": [
-      "node_modules/@types"
-    ],
-    "lib": [
-      "es2018",
-      "dom"
-    ],
-    "paths": {
-      "book-library": [
-        "dist/book-library"
-      ],
-      "book-library/*": [
-        "dist/book-library/*"
-      ],
-      "reader-library": [
-        "dist/reader-library"
-      ],
-      "reader-library/*": [
-        "dist/reader-library/*"
-      ]
+  "files": [],
+  "references": [
+    {
+      "path": "./tsconfig.app.json"
+    },
+    {
+      "path": "./tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/book-library/tsconfig.lib.json"
+    },
+    {
+      "path": "./projects/book-library/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/reader-library/tsconfig.lib.json"
+    },
+    {
+      "path": "./projects/reader-library/tsconfig.spec.json"
     }
-  }
+  ]
 }
