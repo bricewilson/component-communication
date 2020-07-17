@@ -23,9 +23,6 @@ export class DataService {
   }
 
   getAllReaders(): Observable<Reader[]> {
-    // URL to get all readers is /api/readers
-    // return allReaders;
-
     return this.http.get<Reader[]>('/api/readers');
   }
 

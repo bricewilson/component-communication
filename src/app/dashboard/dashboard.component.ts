@@ -1,9 +1,9 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 
-import { Book } from "src/app/models/book";
-import { Reader } from "src/app/models/reader";
-import { DataService } from 'src/app/core/data.service';
+import { Book } from "../models/book";
+import { Reader } from "../models/reader";
+import { DataService } from '../core/data.service';
 import { Subscription } from 'rxjs';
 import { logEagerReaders } from '../core/book_tracker_operators';
 
